@@ -1,8 +1,3 @@
-*pyc
-*.jpg
-*.png
-*pth
-*ckpt
 *.zip
 !experiments/dataset/Office-31/category.txt
 !experiments/dataset/OfficeHomeDataset/category.txt
