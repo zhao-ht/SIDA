@@ -5,7 +5,7 @@
 
 This is the code of our work [Domain Adaptation via Surrogate Mutual Information Maximization](https://www.ijcai.org/proceedings/2022/0237.pdf) published on IJCAI 2022.
 <div align=center>
-<img src="https://github.com/zhao-ht/ConvexCertify/blob/master/fig1.png" width="600px">
+<img src="https://github.com/zhao-ht/SIDA/blob/master/fig1.png" width="600px">
 </div>
 
 
