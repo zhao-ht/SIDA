@@ -1,0 +1,64 @@
+DATASET:
+  NUM_CLASSES: 31
+  DATAROOT: './experiments/dataset/Office-31'
+  SOURCE_NAME: 'amazon'
+  TARGET_NAME: 'dslr'
+
+MODEL: 
+  FEATURE_EXTRACTOR: 'resnet50'
+
+TRAIN:
+  SOURCE_BATCH_SIZE: 30
+  SOURCE_CLASS_BATCH_SIZE: 3
+  TARGET_CLASS_BATCH_SIZE: 3
+  NUM_SELECTED_CLASSES: 10
+
+CLUSTERING:
+  TARGET_BATCH_SIZE: 100
+  SOURCE_BATCH_SIZE: 100
+  BUDGET: 1000
+  FILTERING_THRESHOLD: 0.05
+
+CDD:
+  LOSS_WEIGHT: 0.3
+
+TEST:
+  BATCH_SIZE: 30
+
+
+SIDA:
+  CONSISTENCY: 'infomax'  # ['forward','infomax']
+  INFOMETHOD: 'NWJ'         #['NCE,NWJ]
+  Q_OPTIMIZATION_METHOD: 'PROPAGATION'   #['PROPAGATION','NONE']
+  CDDONLOGITS: False
+  INFOONLOGITS: True
+  SQUAREONLOGITS: True
+
+  ALIGNMENT_FEAT_KEYS: ['feat', 'probs']
+  DISTANCES: ['LpDistance','LpDistance']  #['LpDistance','CosineSimilarity']
+  MINER: 'TripletMarginMiner'   #PairMarginMiner,TripletMarginMiner
+
+  INFOCOEF: 1.0
+  INFOCOEF_2: 1.5
+  INFOCOEF_SQUARE: 0.3
+
+  POS_MARGIN: 0.2
+  NEG_MARGIN: 0.4
+  POS_MARGIN_2: 0.0
+  NEG_MARGIN_2: 0.5
+
+  TYPE_OF_TRIPLETS: 'all' #['all','hard','semihard','easy'];
+  MARGIN: 10
+  MARGIN_2: 10
+
+  TOP_K: 3
+  PROP_MAX_STEP: 3
+  PROP_ALPHA: 0.5
+  PROP_BETA: 0.05
+  GRAPH_METHOD: 'KNN'
+  PROP_ADVER: False
+
+
+EVAL_METRIC: "accuracy"
+SAVE_DIR: "./experiments/ckpt"
+NUM_WORKERS: 8
